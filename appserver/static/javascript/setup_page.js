@@ -11,5 +11,10 @@ require.config({
     scriptType: "module",
 });
 
-// Enter require() method to render setup page logic into main container
-;
+require([
+    "react",
+    "ReactDOM",
+    "myApp",
+], function(react, ReactDOM, myApp) {
+    ReactDOM.render(myApp, document.getElementById('main_container'));
+});
