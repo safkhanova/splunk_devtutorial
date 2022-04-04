@@ -1,0 +1,21 @@
+[app/ui]
+version = 8.2.5
+modtime = 1649106130.586664000
+
+[app/launcher]
+version = 8.2.5
+modtime = 1649106130.601391500
+
+[savedsearches/Top%20Rental%20Rates]
+access = read : [ * ]
+export = none
+owner = zu
+version = 8.2.5
+modtime = 1649107304.058162200
+
+[savedsearches/Movies%20By%20Rating]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = nobody
+version = 8.2.5
+modtime = 1649108056.464381500

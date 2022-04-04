@@ -1,0 +1,14 @@
+<nav search_view="search" color="#ed4d4d">
+  <view name="welcome" default="true" />
+  <view name="search" />
+  <collection label="Saved searches">
+    <saved source="all" />
+  </collection>
+  <view name="analytics_workspace" />
+  <view name="datasets" />
+  <view name="reports" />
+  <view name="alerts" />
+  <view name="dashboards" />
+  <a href="https://dev.splunk.com/enterprise" target="_blank">Splunk Developer Portal</a>
+
+</nav>
