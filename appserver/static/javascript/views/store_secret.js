@@ -13,14 +13,26 @@ export async function perform(splunk_js_sdk, setup_options) {
     };
 
     try {
-        // Enter code to create the Splunk JS SDK Service object
-        ;
+        const service = Config.create_splunk_js_sdk_service(
+        splunk_js_sdk,
+        application_name_space,
+        );
 
         let { password, ...properties } = setup_options;
 
         var storagePasswords = service.storagePasswords();
  
-        // Enter code to create a new secret
+        storagePasswords.create({
+                name: "admin",
+                realm: "devtutorial_realm",
+                password: password},
+                function(err, storagePassword) {
+                    if (err)
+                        {console.warn(err);}
+                    else {
+                        console.log(storagePassword.properties());
+                    }
+                });
         
         await Config.complete_setup(service);
 
