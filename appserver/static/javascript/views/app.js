@@ -24,7 +24,20 @@ define(["react", "splunkjs/splunk"], function(react, splunk_js_sdk){
 
       await Setup.perform(splunk_js_sdk, this.state)
     }
-// Enter code to render UI text
+    render() {
+      return e("div", null, [
+        e("h2", null, "Create a password to complete app setup."),
+        e("div", null, [
+          e("form", { onSubmit: this.handleSubmit }, [
+            e("label", null, [
+              "Password ",
+              e("input", { type: "text", name: "password", value: this.state.password, onChange: this.handleChange })
+            ]),
+            e("input", { type: "submit", value: "Submit" })
+          ])
+        ])
+      ]);
+    }
   }
 
   return e(SetupPage);
