@@ -1,12 +1,17 @@
 event Greeting {
-    required: [text];
-    template: "{{format(_time, \"dd/MMM/yyyy:HH:mm:ss Z\")}} {{text}}";
+    required: [text, count];
+    template: "{{format(_time, \"HH:mm:ss\")}} I've said \"{{text}}\" {{count}} times";
 }
 
 entity Greeter {
+    init {
+        greetings = 0;
+    }
     every(5s) {
         emit Greeting {
             text: "Hello, World!";
+            count: greetings;
         }
+        greetings = greetings + 1;
     }
 }
