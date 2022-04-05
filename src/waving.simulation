@@ -1,0 +1,45 @@
+event GreetingEvent {
+    required: [sender, receiver];
+    template: "{{receiver}} got a wave from {{sender}} at {{format(_time, \"HH:mm:ss\")}}";
+}
+
+message Wave {
+    required: [sender];
+}
+
+entity Waver {
+    init {
+        name = "Hannah";
+    }
+
+    every(Random(1,5)s) {
+        send Wave {
+            sender: name;
+            senderRef: self;
+        }
+    }
+
+    on Wave {
+        emit GreetingEvent {
+            sender: message.sender;
+            receiver: name;
+        }
+    }
+}
+
+entity Wavee {
+    init {
+        name = "Sam";
+    }
+
+    on Wave {
+        emit GreetingEvent {
+            sender: message.sender;
+            receiver: name;
+        }
+        send Wave in (10s) {
+            sender: name;
+            senderBot: self;
+        }
+    }
+}

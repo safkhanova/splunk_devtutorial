@@ -1,0 +1,18 @@
+event TookBook {
+    required: [name, bookname, count];
+    template: "{{name}} took {{bookname}} at {{format(_time, \"HH:mm:ss\")}}. Process id: {{count}}";
+}
+
+entity TakingBook {
+    init {
+        process_id = 0;
+    }
+    every(3s) {
+        emit TookBook {
+            name: "John";
+            bookname: "some book name here";
+            count: process_id;
+        }
+        process_id = process_id + 1;
+    }
+}

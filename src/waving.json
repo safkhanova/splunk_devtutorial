@@ -1,0 +1,39 @@
+{
+  "update_interval": 100,
+  "time_unit": "MILLIS",
+  "entities": [
+    {
+      "entity_name": "Waver",
+      "count": 1
+    },
+    {
+      "entity_name": "Wavee",
+      "count": 1,
+      "initial_state": {
+        "name": "Sam"
+      }
+    },
+    {
+      "entity_name": "Wavee",
+      "count": 1,
+      "initial_state": {
+        "name": "George"
+      }
+    }
+  ],
+  "entity_wirings": [
+    {
+      "from": "Waver",
+      "to": "Wavee",
+      "message_type": "Wave",
+      "wiring_type": "any"
+    },
+    {
+      "from": "Wavee",
+      "to": "Waver",
+      "message_type": "Wave",
+      "wiring_type": "any"
+    }
+  ],
+  "default_transport": "Text"
+}
