@@ -1,0 +1,12 @@
+event Greeting {
+    required: [text];
+    template: "{{format(_time, \"dd/MMM/yyyy:HH:mm:ss Z\")}} {{text}}";
+}
+
+entity Greeter {
+    every(5s) {
+        emit Greeting {
+            text: "Hello, World!";
+        }
+    }
+}

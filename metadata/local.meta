@@ -19,3 +19,12 @@ export = none
 owner = nobody
 version = 8.2.5
 modtime = 1649108056.464381500
+
+[passwords/credential%3Adevtutorial_realm%3Aadmin%3A]
+owner = zu
+version = 8.2.5
+modtime = 1649113924.661838300
+
+[app/install]
+version = 8.2.5
+modtime = 1649113925.150127300
